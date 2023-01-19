@@ -166,7 +166,7 @@ class _RegisterState extends State<Register> {
                               print("Created");
                               Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => const Home()));
+                                  MaterialPageRoute(builder: (context) => const profile_main()));
                             }).onError((error, stackTrace)
                             {
                               print("Error ${error.toString()}");

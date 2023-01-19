@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:pebble_life/MainScreens/Dashboard.dart';
 import 'package:pebble_life/get_started.dart';
 import 'Profile/Profile_page1.dart';
 import 'Registeration.dart';
@@ -169,7 +170,7 @@ class _loginState extends State<login> {
                             FirebaseAuth.instance.signInWithEmailAndPassword(email: nameController.text, password: passwordController.text)
                                 .then((value){
                               print("logined succesffuly");
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => const profile_main()),);   });
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => const dashboard()),);   });
                             if (nameController.text.isEmpty || nameController.text ==String.fromCharCode(32)) {
                               Fluttertoast.showToast(
                                 msg: 'Email id not entered',
