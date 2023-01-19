@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "571269854227",
+    "project_id": "pebble-3ad93",
+    "storage_bucket": "pebble-3ad93.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:571269854227:android:879a2df0c1ffa840873be6",
+        "android_client_info": {
+          "package_name": "com.example.pebble_life"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "571269854227-k3jlq19nojhfggjqi5pegcn5248j6rac.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pebble_life",
+            "certificate_hash": "a65fd8a8640f9bae6b1681341fafd131e2398b7a"
+          }
+        },
+        {
+          "client_id": "571269854227-7l3drjdhqbemmgc9beg6neq856vdj96v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHBxxg9tuEU-q7azzhspdehwtWSL9CZ_s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "571269854227-7l3drjdhqbemmgc9beg6neq856vdj96v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
