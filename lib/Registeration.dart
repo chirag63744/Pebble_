@@ -30,11 +30,16 @@ class _RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
+    var size,height,width;
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     return Scaffold(
         body: SingleChildScrollView(
           child:Container(
             key: formkey,
-            width: double.infinity,
+            height: height,
+            width: width,
             decoration: BoxDecoration(
               color: Colors.white,
             ),
@@ -45,11 +50,12 @@ class _RegisterState extends State<Register> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  width:  300,
-                  height:  220,
+                  width:  width*0.5,
+                  height:  height*0.22,
                   margin: EdgeInsets.fromLTRB(0, 45, 0, 0),
                   child:
                   Image.asset('assets/images/register.png',
+                    fit: BoxFit.fitHeight,
                   ),
                 ),
                 Container(
@@ -60,7 +66,7 @@ class _RegisterState extends State<Register> {
                     style:  GoogleFonts.poppins (
                       fontSize:  36,
                       fontWeight:  FontWeight.w700,
-                      height:  5,
+                      height:  height*0.002,
                       color:  Color(0xff74369a),
                     ),
                   ),
@@ -83,6 +89,7 @@ class _RegisterState extends State<Register> {
                 ),
                 Container(
                   padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+                    height: height*0.08,
                   child: TextFormField(
                       controller: nameController,
                       decoration: const InputDecoration(
@@ -106,10 +113,11 @@ class _RegisterState extends State<Register> {
                         return null;
                       }
 
-                  ),
+                  )
                 ),
                 Container(
                   padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+                    height: height*0.08,
                   child: TextField(
                     obscureText: true,
                     controller: passwordController,
@@ -126,10 +134,11 @@ class _RegisterState extends State<Register> {
                         color: Color(0xff74369a),
                       ),
                     ),
-                  ),
+                  )
                 ),
                 Container(
                   padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+                    height: height*0.08,
                   child: TextField(
                     obscureText: true,
                     controller: confirmpass,
@@ -147,6 +156,7 @@ class _RegisterState extends State<Register> {
                       ),
                     ),
                   ),
+
                 ),
                 Container(
                   padding: EdgeInsets.all(20),
@@ -155,8 +165,8 @@ class _RegisterState extends State<Register> {
                   Center(
                       child:
                       SizedBox(
-                        width: 225,
-                        height: 60,
+                        width: width*0.6,
+                        height: height*0.06,
                         child:
                         ElevatedButton(
                           onPressed: () {
@@ -223,7 +233,7 @@ class _RegisterState extends State<Register> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.only(top: 15),
+                  padding: const EdgeInsets.only(top: 10),
                   margin:  EdgeInsets.all(10),
                   alignment: Alignment.center,
                   child:
@@ -235,21 +245,21 @@ class _RegisterState extends State<Register> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            width:  150,
-                            height:  3,
+                            width:  width*0.4,
+                            height:  height*0.005,
                             decoration:  BoxDecoration (
                               color:  Color(0x7f461667),
                             ),
                           ),
                           SizedBox(
-                            width:  25,
+                            width:   width*0.04,
                           ),
                           Text(
                             'OR',
                             style:  GoogleFonts.poppins (
                               fontSize:  17,
                               fontWeight:  FontWeight.w400,
-                              height:  1,
+                              height:  height*0.00002,
                               color:  Color(0xff461667),
                             ),
                           ),
@@ -258,7 +268,7 @@ class _RegisterState extends State<Register> {
                           ),
                           Container(
                             width:  150,
-                            height:  3,
+                            height:  height*0.005,
                             decoration:  BoxDecoration (
                               color:  Color(0x7f461667),
                             ),
@@ -276,7 +286,7 @@ class _RegisterState extends State<Register> {
                       child:
                       SizedBox(
                         width: 225,
-                        height: 60,
+                      height: height*0.06,
                         child:
                         ElevatedButton.icon(
                           onPressed: () {
@@ -303,6 +313,7 @@ class _RegisterState extends State<Register> {
 
 
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     const Text('Already have an account?'),
                     TextButton(
@@ -314,12 +325,11 @@ class _RegisterState extends State<Register> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const profile_main()),
+                          MaterialPageRoute(builder: (context) => const login()),
                         );
                       },
                     )
                   ],
-                  mainAxisAlignment: MainAxisAlignment.center,
                 ),
 
 

@@ -15,9 +15,14 @@ class dashboard extends StatefulWidget {
 class _dashboardState extends State<dashboard> {
   @override
   Widget build(BuildContext context) {
+    var size,height,width;
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     return Scaffold(
       backgroundColor: Color(0xff3f0c61),
-      body: SafeArea(
+      body: SingleChildScrollView(
+      child:SafeArea(
         child: Column(
           children: [
             Padding(
@@ -652,6 +657,6 @@ class _dashboardState extends State<dashboard> {
           ],
         ),
       ),
-    );
+    ));
   }
 }

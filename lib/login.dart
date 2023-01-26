@@ -2,11 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:pebble_life/MainScreens/Dashboard.dart';
 import 'package:pebble_life/get_started.dart';
 import 'Profile/Profile_page1.dart';
 import 'Registeration.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class login extends StatefulWidget {
   const login({Key? key}) : super(key: key);
@@ -38,6 +38,7 @@ class _loginState extends State<login> {
       print(reslut.email);
       print(reslut.photoUrl);
 
+
     } catch (error) {
       print(error);
     }
@@ -52,10 +53,16 @@ class _loginState extends State<login> {
 
   @override
   Widget build(BuildContext context) {
+    var size,height,width;
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     return Scaffold(
         body:SingleChildScrollView(
-          child:Container(
-            width: double.infinity,
+      child:Container(
+          height: height,
+            width: width,
+
             decoration: BoxDecoration(
               color: Colors.white,
             ),
@@ -66,12 +73,19 @@ class _loginState extends State<login> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  width:  350,
-                  height:  275,
-                  margin: EdgeInsets.fromLTRB(0, 45, 0, 0),
+                  width:  width*0.5,
+                  height:  height*0.25,
+                  margin: EdgeInsets.fromLTRB(0,40,0,0),
                   child:
                   Image.asset('assets/images/login.png',
-                  ),
+                    fit: BoxFit.fitHeight,
+
+
+
+
+                  )
+                  ,
+                  padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
                 ),
                 Container(
                   margin:  EdgeInsets.fromLTRB(0, 0, 2, 0),
@@ -81,7 +95,7 @@ class _loginState extends State<login> {
                     style:  GoogleFonts.poppins (
                       fontSize:  36,
                       fontWeight:  FontWeight.w700,
-                      height:  5,
+                      height:  height*0.002,
                       color:  Color(0xff74369a),
                     ),
                   ),
@@ -104,6 +118,7 @@ class _loginState extends State<login> {
                 ),
                 Container(
                   padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+                  height: height*0.08,
                   child: TextField(
                     controller: nameController,
                     decoration: const InputDecoration(
@@ -123,6 +138,7 @@ class _loginState extends State<login> {
                 ),
                 Container(
                   padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+                  height: height*0.08,
                   child: TextField(
                     obscureText: true,
                     controller: passwordController,
@@ -161,8 +177,8 @@ class _loginState extends State<login> {
                   Center(
                       child:
                       SizedBox(
-                        width: 225,
-                        height: 60,
+                        width: width*0.6,
+                        height: height*0.06,
                         child:
                         ElevatedButton(
                           onPressed: () {
@@ -223,21 +239,21 @@ class _loginState extends State<login> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            width:  150,
-                            height:  3,
+                            width:  width*0.4,
+                            height:  height*0.002,
                             decoration:  BoxDecoration (
                               color:  Color(0x7f461667),
                             ),
                           ),
                           SizedBox(
-                            width:  25,
+                            width:  width*0.04,
                           ),
                           Text(
                             'OR',
                             style:  GoogleFonts.poppins (
                               fontSize:  17,
                               fontWeight:  FontWeight.w400,
-                              height:  1,
+                              height:  height*0.0005,
                               color:  Color(0xff461667),
                             ),
                           ),
@@ -246,7 +262,7 @@ class _loginState extends State<login> {
                           ),
                           Container(
                             width:  150,
-                            height:  3,
+                            height:  1,
                             decoration:  BoxDecoration (
                               color:  Color(0x7f461667),
                             ),
@@ -264,10 +280,11 @@ class _loginState extends State<login> {
                       child:
                       SizedBox(
                         width: 225,
-                        height: 60,
+                        height: height*0.06,
                         child:
                         ElevatedButton.icon(
                           onPressed: () {
+
 
 
                             Navigator.push(
@@ -290,6 +307,7 @@ class _loginState extends State<login> {
                 ),
 
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     const Text('Don’t have an account!'),
                     TextButton(
@@ -306,7 +324,6 @@ class _loginState extends State<login> {
                       },
                     )
                   ],
-                  mainAxisAlignment: MainAxisAlignment.center,
                 ),
               ],
 
@@ -314,4 +331,16 @@ class _loginState extends State<login> {
           ),
         ));
   }
-}
+  siginGoogle()
+  async {
+    GoogleSignInAccount? googleuser=await GoogleSignIn().signIn();
+    GoogleSignInAuthentication? googleAuth= await googleuser?.authentication;
+    AuthCredential credential=GoogleAuthProvider.credential(
+      accessToken:googleAuth?.accessToken,
+      idToken:googleAuth?.idToken
+    );
+    UserCredential user=await FirebaseAuth.instance.signInWithCredential(credential);
+
+  }
+
+  }

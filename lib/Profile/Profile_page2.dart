@@ -19,6 +19,8 @@ class _profile_subState extends State<profile_sub> {
   @override
   Widget build(BuildContext context) {
     int? toggle;
+    bool _toggle = true;
+    String image='assets/images/doctor.png';
     return Scaffold(
         body: SingleChildScrollView(
         child:Container(
@@ -75,14 +77,16 @@ class _profile_subState extends State<profile_sub> {
                   ),
                 ),
               ),
+
+
               Container(
                 alignment: Alignment.center,
                 width:  250,
                 height:  364,
                 margin: EdgeInsets.fromLTRB(100, 25, 0, 25),
-                child:
-                Image.asset('assets/images/doctor.png',
-                ),
+                child: _toggle
+                    ? Image.asset('assets/images/doctor.png')
+                    : Image.asset('assets/images/patient.png'),
               ),
               Container(
                 alignment: Alignment.center,
@@ -102,6 +106,9 @@ class _profile_subState extends State<profile_sub> {
                   activeBgColor: [Color(0xff74369a)],
                   onToggle: (index) {
                     toggle=index;
+                    setState(() {
+                      _toggle = !_toggle;
+                    });
 
                     print('switched to: $toggle');
                   },
@@ -121,12 +128,14 @@ class _profile_subState extends State<profile_sub> {
                       ElevatedButton(
                         onPressed: () {
                           if(toggle==0)
-                            {Navigator.push(
+                            {//image='assets/images/doctor.png';
+                              Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) => const profile_doc()),
                             );}
                           else if(toggle==1)
                             {
+                              //image='assets/images/patient.png';
                               {Navigator.push(
                                 context,
                                 MaterialPageRoute(builder: (context) => const profile_patient()),

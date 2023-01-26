@@ -15,7 +15,7 @@ class _ExtendedSplashState extends State<ExtendedSplash> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 8),
+    Timer(Duration(seconds: 5),
             ()=>Navigator.pushReplacement(context,
             MaterialPageRoute(builder:
                 (context) => Home()
@@ -26,6 +26,10 @@ class _ExtendedSplashState extends State<ExtendedSplash> {
 
   @override
   Widget build(BuildContext context) {
+    var size,height,width;
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     return Scaffold(
       body: Container(
         padding:  EdgeInsets.fromLTRB(0, 0, 0, 20),
@@ -39,14 +43,13 @@ class _ExtendedSplashState extends State<ExtendedSplash> {
           children:  [
             Container(
               margin:  EdgeInsets.fromLTRB(0, 0, 0, 17),
-              width:  double.infinity,
-              height:  723,
+              width:  width,
+              height:  height*0.6,
               child:
               Center(
                 child:
                 Image( image: AssetImage('assets/images/splash2.png'),
-                  height: MediaQuery.of(context).size.height,
-                  width: MediaQuery.of(context).size.width,
+                  width: width,
                   fit: BoxFit.cover,
                 ),
               ),
