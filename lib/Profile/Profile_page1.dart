@@ -29,11 +29,18 @@ class _profile_mainState extends State<profile_main> {
 
   @override
   Widget build(BuildContext context) {
+    var size,height,width;
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     return Scaffold(
-      body: Container(
-        // height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
+      body: SingleChildScrollView(
+        child:Container(
+        height: height,
+        width: width,
         child: Container(
+          height: height*0.08,
+          width: width,
           margin: EdgeInsets.fromLTRB(26, 50, 26, 10),
           child: Stack(
             children: [
@@ -76,7 +83,7 @@ class _profile_mainState extends State<profile_main> {
                         children: [
                           Container(
                             width: 130,
-                            height: 130,
+                            height: height*0.15,
                             decoration: BoxDecoration(
                                 border: Border.all(width: 4, color: Color(0xff724db9)),
                                 boxShadow: [
@@ -88,7 +95,7 @@ class _profile_mainState extends State<profile_main> {
                                 ],
                                 shape: BoxShape.circle,
                                 image: DecorationImage(
-                                    fit: BoxFit.cover,
+                                    fit: BoxFit.fitHeight,
                                     image: NetworkImage('https://t3.ftcdn.net/jpg/05/14/18/46/360_F_514184651_W5rVCabKKRH6H3mVb62jYWfuXio8c8si.jpg')
                                 )
                             ),
@@ -120,13 +127,14 @@ class _profile_mainState extends State<profile_main> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 20),
+                margin: EdgeInsets.only(top: 0),
                 padding: EdgeInsets.only(top: 250),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
+                      height: height*0.06,
                       alignment: Alignment.centerLeft,
                       margin: EdgeInsets.only(bottom: 20),
                       child: TextField(
@@ -147,6 +155,7 @@ class _profile_mainState extends State<profile_main> {
                       ),
                     ),
                     Container(
+                      height: height*0.06,
                       alignment: Alignment.centerLeft,
                       margin: EdgeInsets.only(bottom: 20),
                       child: TextField(
@@ -167,6 +176,7 @@ class _profile_mainState extends State<profile_main> {
                       ),
                     ),
                     Container(
+                      height: height*0.06,
                       alignment: Alignment.centerLeft,
                       margin: EdgeInsets.only(bottom: 20),
                       child: TextField(
@@ -187,6 +197,7 @@ class _profile_mainState extends State<profile_main> {
                       ),
                     ),
                     Container(
+                      height: height*0.06,
                       alignment: Alignment.centerLeft,
                       margin: EdgeInsets.only(bottom: 20),
                       child: TextField(
@@ -215,6 +226,7 @@ class _profile_mainState extends State<profile_main> {
                       ),
                     ),
                     Container(
+                      height: height*0.06,
                       alignment: Alignment.centerLeft,
                       margin: EdgeInsets.only(bottom: 20),
 
@@ -248,7 +260,7 @@ class _profile_mainState extends State<profile_main> {
                           );
                         }).toList(),
                         hint: Text(
-                          "Please choose a langauage",
+                          "Gender",
                           style: TextStyle(
                               color: Color(0xff74369a),
                               fontSize: 16,
@@ -266,13 +278,13 @@ class _profile_mainState extends State<profile_main> {
                     Container(
                       alignment: Alignment.bottomCenter,
                       padding: EdgeInsets.all(20),
-                      margin:  EdgeInsets.fromLTRB(56.5, 30, 58.5, 0),
+                      margin:  EdgeInsets.fromLTRB(56.5, 10, 58.5, 0),
                       child:
                       Center(
                           child:
                           SizedBox(
                             width: 225,
-                            height: 60,
+                            height: height*0.049,
                             child:
                             ElevatedButton(
                               onPressed: () async {
@@ -309,7 +321,7 @@ class _profile_mainState extends State<profile_main> {
 
 
       ),
-    );
+    ));
   }
 
 }

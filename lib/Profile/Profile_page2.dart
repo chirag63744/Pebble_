@@ -21,12 +21,17 @@ class _profile_subState extends State<profile_sub> {
     int? toggle;
     bool _toggle = true;
     String image='assets/images/doctor.png';
+    var size,height,width;
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     return Scaffold(
         body: SingleChildScrollView(
         child:Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: Container(
+
           margin: EdgeInsets.fromLTRB(26, 50, 26, 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +66,8 @@ class _profile_subState extends State<profile_sub> {
               Center(
                 child:
                 Container(
-                  margin:  EdgeInsets.fromLTRB(0, 50, 0, 20),
+                  height: height*0.08,
+                  margin:  EdgeInsets.fromLTRB(0, 20, 0, 0),
                   constraints:  BoxConstraints (
                     maxWidth:  300,
                   ),
@@ -78,22 +84,22 @@ class _profile_subState extends State<profile_sub> {
                 ),
               ),
 
-
               Container(
                 alignment: Alignment.center,
-                width:  250,
-                height:  364,
-                margin: EdgeInsets.fromLTRB(100, 25, 0, 25),
+                width:  width*0.6,
+                height:  height*0.34,
+                margin: EdgeInsets.fromLTRB( 50,0, 0, 0),
                 child: _toggle
                     ? Image.asset('assets/images/doctor.png')
                     : Image.asset('assets/images/patient.png'),
               ),
               Container(
+                height: height*0.1,
                 alignment: Alignment.center,
-                margin: EdgeInsets.fromLTRB(0, 20, 0, 10),
+                margin: EdgeInsets.fromLTRB(10, 40, 0, 10),
                 child: ToggleSwitch(
-                  minWidth: 180,
-                  minHeight: 50,
+                  minWidth: width*0.4,
+                  minHeight: height*0.05,
                   initialLabelIndex: 0,
                   cornerRadius: 50.0,
                   activeFgColor: Colors.white,
@@ -106,9 +112,7 @@ class _profile_subState extends State<profile_sub> {
                   activeBgColor: [Color(0xff74369a)],
                   onToggle: (index) {
                     toggle=index;
-                    setState(() {
-                      _toggle = !_toggle;
-                    });
+
 
                     print('switched to: $toggle');
                   },
@@ -117,13 +121,13 @@ class _profile_subState extends State<profile_sub> {
               Container(
                 alignment: Alignment.bottomCenter,
                 padding: EdgeInsets.all(20),
-                margin:  EdgeInsets.fromLTRB(56.5, 50, 58.5, 0),
+                margin:  EdgeInsets.fromLTRB(56.5, 20, 58.5, 0),
                 child:
                 Center(
                     child:
                     SizedBox(
                       width: 225,
-                      height: 60,
+                      height: height*0.05,
                       child:
                       ElevatedButton(
                         onPressed: () {

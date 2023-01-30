@@ -27,8 +27,13 @@ class _profile_patientState extends State<profile_patient> {
 
   @override
   Widget build(BuildContext context) {
+    var size,height,width;
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     return Scaffold(
-      body: Container(
+      body: SingleChildScrollView(
+        child:Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child: Container(
@@ -65,7 +70,8 @@ class _profile_patientState extends State<profile_patient> {
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.only(bottom: 20, top: 50),
+                 height: height*0.06,
+                  margin: EdgeInsets.only(bottom: 20, top: 30),
                   child: TextField(
                     controller: adharController,
                     decoration: const InputDecoration(
@@ -85,6 +91,7 @@ class _profile_patientState extends State<profile_patient> {
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
+                  height: height*0.06,
                   margin: EdgeInsets.only(bottom: 20),
                   child: TextField(
                     controller: Height,
@@ -105,6 +112,7 @@ class _profile_patientState extends State<profile_patient> {
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
+                  height: height*0.06,
                   margin: EdgeInsets.only(bottom: 20),
                   child: TextField(
                     controller: weight,
@@ -125,6 +133,7 @@ class _profile_patientState extends State<profile_patient> {
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
+                  height: height*0.06,
                   margin: EdgeInsets.only(bottom: 20),
                   child: TextField(
                     controller: Blood_Type,
@@ -145,6 +154,7 @@ class _profile_patientState extends State<profile_patient> {
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
+                  height: height*0.06,
                   margin: EdgeInsets.only(bottom: 20),
                   child: TextField(
                     controller: Age,
@@ -165,6 +175,7 @@ class _profile_patientState extends State<profile_patient> {
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
+                  height: height*0.06,
                   margin: EdgeInsets.only(bottom: 20),
                   child: TextField(
                     controller: Location,
@@ -188,13 +199,13 @@ class _profile_patientState extends State<profile_patient> {
                 Container(
                   alignment: Alignment.bottomCenter,
                   padding: EdgeInsets.all(20),
-                  margin:  EdgeInsets.fromLTRB(56.5, 50, 58.5, 0),
+                  margin:  EdgeInsets.fromLTRB(56.5, 40, 58.5, 0),
                   child:
                   Center(
                       child:
                       SizedBox(
                         width: 225,
-                        height: 60,
+                        height: height*0.07,
                         child:
                         ElevatedButton(
                           onPressed: () async {
@@ -227,6 +238,6 @@ class _profile_patientState extends State<profile_patient> {
 
 
       ),
-    );
+    ));
   }
 }

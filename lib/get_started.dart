@@ -9,6 +9,10 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size,height,width;
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     return Scaffold(
         body: SingleChildScrollView(
           child:Container(
@@ -25,15 +29,15 @@ class Home extends StatelessWidget {
                 Container(
                   margin:  EdgeInsets.fromLTRB(0, 62, 0, 25),
                   width:  65.25,
-                  height:  73,
+                  height:  height*0.08,
                   child:
                   Image.asset('assets/images/pebblelogo.png',
                   ),
                 ),
                 Container(
                   width:  250,
-                  height:  364,
-                  margin: EdgeInsets.fromLTRB(0, 25, 0, 25),
+                  height:  height*0.3,
+                  margin: EdgeInsets.fromLTRB(0, 25, 0, 0),
                   child:
                   Image.asset('assets/images/getstarted.png',
                   ),
@@ -99,7 +103,6 @@ class Home extends StatelessWidget {
                       Center(
                         child:
                         Container(
-                          margin:  EdgeInsets.fromLTRB(0, 0, 0, 0),
                           constraints:  BoxConstraints (
                             maxWidth:  300,
                           ),
@@ -120,8 +123,8 @@ class Home extends StatelessWidget {
                 ),
                 //logo
                 Container(
-                  // iconFcq (1:156)
-                    margin: EdgeInsets.only(left: 226, bottom: 30),
+                  // icon bars
+                    margin: EdgeInsets.only(left: 200, bottom: 10),
                     width:  double.infinity,
                     decoration:  BoxDecoration (
                       borderRadius:  BorderRadius.circular(18),
@@ -136,9 +139,9 @@ class Home extends StatelessWidget {
                         children:  [
                           Container(
                             // rectangle1015Vn5 (1:157)
-                            margin:  EdgeInsets.fromLTRB(0, 0.79, 2.36, 0),
+                            margin:  EdgeInsets.fromLTRB(0, 0.79, 1, 0),
                             width:  3.94,
-                            height:  15.76,
+                            height:  15,
                             decoration:  BoxDecoration (
                               borderRadius:  BorderRadius.circular(18),
                               color:  Color(0xffe94560),
@@ -175,7 +178,7 @@ class Home extends StatelessWidget {
                       child:
                       SizedBox(
                         width: 225,
-                        height: 60,
+                        height: height*0.06,
                         child:
                         ElevatedButton(
                           onPressed: () {
@@ -199,7 +202,7 @@ class Home extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin:  EdgeInsets.only(left: 100),
+                  margin:  EdgeInsets.only(left: 60),
                   height: 75,
                   child:
                   Row(

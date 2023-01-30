@@ -29,12 +29,17 @@ class _profile_docState extends State<profile_doc> {
 
   @override
   Widget build(BuildContext context) {
+    var size,height,width;
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     return Scaffold(
-      body: SingleChildScrollView(child:Container(
+      body: SingleChildScrollView(
+        child:Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child: Container(
-            margin: EdgeInsets.fromLTRB(26, 50, 26, 10),
+            margin: EdgeInsets.fromLTRB(26, 19, 26, 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -53,7 +58,7 @@ class _profile_docState extends State<profile_doc> {
                 ),
                 Positioned(
                   left: 0,
-                  top: 50,
+                  top: 40,
                   child:
                   Text(
                     'Let’s get started and complete your profile',
@@ -67,7 +72,8 @@ class _profile_docState extends State<profile_doc> {
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.only(bottom: 20, top: 50),
+                  height: height*0.06,
+                  margin: EdgeInsets.only(bottom: 20, top: 30),
                   child: TextField(
                     controller: ControllDoctorid,
                     decoration: const InputDecoration(
@@ -87,6 +93,7 @@ class _profile_docState extends State<profile_doc> {
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
+                  height: height*0.06,
                   margin: EdgeInsets.only(bottom: 20),
                   child: TextField(
                     controller: Designation,
@@ -107,6 +114,7 @@ class _profile_docState extends State<profile_doc> {
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
+                  height: height*0.06,
                   margin: EdgeInsets.only(bottom: 20),
                   child: TextField(
                     controller: Location,
@@ -127,6 +135,7 @@ class _profile_docState extends State<profile_doc> {
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
+                  height: height*0.06,
                   margin: EdgeInsets.only(bottom: 20),
                   child: TextField(
                     controller: Specialization,
@@ -147,6 +156,7 @@ class _profile_docState extends State<profile_doc> {
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
+                  height: height*0.06,
                   margin: EdgeInsets.only(bottom: 20),
                   child: TextField(
                     controller: Achievements,
@@ -167,6 +177,7 @@ class _profile_docState extends State<profile_doc> {
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
+                  height: height*0.06,
                   margin: EdgeInsets.only(bottom: 20),
                   child: TextField(
                     controller: Education,
@@ -187,6 +198,7 @@ class _profile_docState extends State<profile_doc> {
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
+                  height: height*0.06,
                   margin: EdgeInsets.only(bottom: 20),
                   child: TextField(
                     controller: YearOfExperience,
@@ -209,13 +221,13 @@ class _profile_docState extends State<profile_doc> {
                 Container(
                   alignment: Alignment.bottomCenter,
                   padding: EdgeInsets.all(20),
-                  margin:  EdgeInsets.fromLTRB(56.5, 50, 58.5, 0),
+                  margin:  EdgeInsets.fromLTRB(56.5, 20, 58.5, 0),
                   child:
                   Center(
                       child:
                       SizedBox(
                         width: 225,
-                        height: 60,
+                        height: height*0.06,
                         child:
                         ElevatedButton(
                           onPressed: () async {
